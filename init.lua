@@ -1,6 +1,4 @@
--- Retool init.lua
--- Copyright J.B. Groff (Shnikety), 2017
--- Distributed under the LGPLv2.1 (https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html)
+--just an idea
 
 -- register mirror recipies
 -- TODO: this does not take into acount symmetric recipes
@@ -136,124 +134,125 @@ for _, kind in pairs({"wood", "stone", "steel", "bronze", "mese", "diamond"}) do
 end
 minetest.clear_craft({output = "screwdriver:screwdriver"})
 
-local _, W, S = "", "default:cobble", "group:stick"
+local _____, BLUNT, SHARP, STICK = "", "default:cobble", "default:flint", "group:stick"
 -- when registering doubles the last one should look similar to jpg
 register({
-	output = "default:pick",
+	output = "default:axe",
 	recipe = {
-		{_, W, _},
-		{_, S, W},
-		{S, _,  W}
-	}
-})
-register({
-	output = "default:pick",
-	recipe = {
-		{W, W, _},
-		{_, S, W},
-		{S, _, _}
+		{_____, STICK, BLUNT},
+		{STICK, BLUNT, BLUNT}
 	}
 })
 register({
 	output = "default:axe",
 	recipe = {
-		{_, S, W},
-		{S, W, W}
-	}
-})
-register({
-	output = "default:axe",
-	recipe = {
-		{W, W},
-		{W, S},
-		{S, _}
+		{BLUNT, BLUNT},
+		{BLUNT, STICK},
+		{STICK, _____}
 	}
 })
 register({
 	output = "farming:hoe",
 	recipe = {
-		{_, S, W},
-		{S, _, W}
+		{_____, STICK, BLUNT},
+		{STICK, _____, BLUNT}
 	}
 })
 register({
 	output = "farming:hoe",
 	recipe = {
-		{W, W},
-		{_, S},
-		{S, _}
+		{BLUNT, BLUNT},
+		{_____, STICK},
+		{STICK, _____}
+	}
+})
+-- obviously this could be replaced by a recipe with four BLUNT instead of three
+register({
+	output = "default:pick",
+	recipe = {
+		{_____, BLUNT, _____},
+		{_____, STICK, BLUNT},
+		{STICK, _____, BLUNT}
+	}
+})
+register({
+	output = "default:pick",
+	recipe = {
+		{BLUNT, BLUNT, _____},
+		{_____, STICK, BLUNT},
+		{STICK, _____, _____}
 	}
 })
 register({
 	output = "default:shovel",
 	recipe = {
-		{_, W, W},
-		{_, S, W},
-		{S, _, _}
+		{_____, BLUNT, BLUNT},
+		{_____, STICK, BLUNT},
+		{STICK, _____, _____}
 	}
 })
 register({
 	output = "default:sword",
 	recipe = {
-		{_, _, W},
-		{_, W, _},
-		{S, _, _}
+		{_____, _____, BLUNT},
+		{_____, BLUNT, _____},
+		{STICK, _____, _____}
 	}
 })
 register({
 	output = "screwdriver:screwdriver",
 	recipe = {
-		{"default:steel_ingot", _},
-		{_, S}
+		{"default:steel_ingot", _____},
+		{_____, STICK}
 	}
 })
 --[[ just a few additional ideas here
 register({
 	output = "retool:hammer",
 	recipe = {
-		{_, W, _},
-		{_, S, W},
-		{S, _, _}
+		{_____, BLUNT, _____},
+		{_____, STICK, BLUNT},
+		{STICK, _____, _____}
 	}
 })
 register({
 	output = "retool:spear",
 	recipe = {
-		{_, _, W},
-		{_, S, _},
-		{S, _, _}
+		{_____, _____, SHARP},
+		{_____, STICK, _____},
+		{STICK, _____, _____}
 	}
 })
-register({
+regiSTICKter({
 	output = "retool:arrow",
 	recipe = {
-		{_, _, W},
-		{_, S, _},
-		{"farming:feather", _,  _}
+		{_____, _____, SHARP},
+		{_____, STICK, _____},
+		{"farming:feather", _____,  _____}
 	}
 })
 register({
 	output = "retool:mattock", --hmm... https://en.wikipedia.org/wiki/Pulaski_(tool)
 	recipe = {
-		{W, W, _},
-		{W, S, W},
-		{S, _, W}
+		{BLUNT, BLUNT, _____},
+		{BLUNT, STICK, SHARP},
+		{STICK, _____, SHARP}
 	}
 })
 register({
 	output = "retool:adz",
 	recipe = {
-		{W, W, W},
-		{_, S, _},
-		{S, _, _}
+		{SHARP, SHARP, SHARP},
+		{_____, STICK, _____},
+		{STICK, _____, _____}
 	}
 })
 -- or perhaps...
 register({
 	output = "retool:adz",
 	recipe = {
-		{"default:flint", "default:flint"},
-		{S, _}
+		{SHARP, SHARP},
+		{STICK, _____}
 	}
 })
 --]]
