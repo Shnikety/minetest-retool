@@ -1,7 +1,9 @@
---just an idea
+-- Retool init.lua
+-- Copyright J.B. Groff (Shnikety), 2018
+-- Distributed under the LGPLv2.1 (https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html)
 
--- register mirror recipies
--- TODO: this does not take into acount symmetric recipes
+-- register mirror recipes
+-- TODO: this does not take into account symmetric recipes
 function mirror(arg)
 	local r = arg.recipe
 	local new = function(arg) minetest.register_craft(arg) end
@@ -99,14 +101,14 @@ function register(arg)
 			i = i + 1
 			location[i] = {y, x}
 			if not tool_type then tool_type = 'sharp'
-			--elseif tool_type = 'blunt' then tool_type = 'composit'
+			--elseif tool_type = 'blunt' then tool_type = 'composite'
 			end
 		elseif r[y][x] == "default:cobble" then
 			i = i + 1
 			location[i] = {y, x}
 			if not tool_type then
 				tool_type = 'blunt'
-			--elseif tool_type = 'sharp' then tool_type = 'composit'
+			--elseif tool_type = 'sharp' then tool_type = 'composite'
 			end
 		end
 		end
