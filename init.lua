@@ -225,7 +225,7 @@ register({
 		{STICK, _____, _____}
 	}
 })
-regiSTICKter({
+register({
 	output = "retool:arrow",
 	recipe = {
 		{_____, _____, SHARP},
